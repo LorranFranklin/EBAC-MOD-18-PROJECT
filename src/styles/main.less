@@ -1,6 +1,8 @@
 @fontePrincipal: Roboto, sans-serif;
 @fonteDoTitulo: lobster, cursive;
 @corDoTexto: #fff;
+@corTextButton: #000;
+@corFundoButton: #f7b731;
 
 body {
   background-color: #eb3b5a;
@@ -10,4 +12,37 @@ body {
 
 h1 {
  font-family: @fonteDoTitulo;
+ font-size: 3em;
+}
+
+main {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 2em;
+  text-align: center;
+}
+
+button {
+  padding: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-top: 16px;
+  border-radius: 8px;
+  background-color: @corFundoButton;
+  color: @corTextButton;
+  font-family: @fontePrincipal;
+}
+
+input {
+  display: block;
+  margin: 16px auto 0;
+  font-size: 2em;
+  max-width: 120px;
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  color: @corDoTexto;
+  border-bottom: 2px solid @corDoTexto;
 }
