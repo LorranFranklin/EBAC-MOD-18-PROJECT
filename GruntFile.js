@@ -25,9 +25,9 @@ module.exports = function (grunt) {
         tasks: ['less:development'], // Run the development task when a .less file changes
       },
       html: {
-        files:['src/index.html'], // Watch index.html for changes
+        files: ['src/index.html'], // Watch index.html for changes
         tasks: ['replace:dev'], // Run the replace task when index.html changes
-      }
+      },
     },
     replace: {
       dev: {
@@ -36,6 +36,10 @@ module.exports = function (grunt) {
             {
               match: 'ENDERECO_DO_CSS', // Replace this with the actual pattern you want to match
               replacement: './styles/main.css', // Replace with the path to the CSS file
+            },
+            {
+              match: 'ENDERECO_DO_JS', // Replace this with the actual pattern you want to match
+              replacement: '../src/scripts/main.js', // Replace with the path to the JS file
             },
           ],
         },
@@ -80,7 +84,7 @@ module.exports = function (grunt) {
         ],
       },
     },
-    clean: ['prebuild']
+    clean: ['prebuild'],
   });
 
   grunt.loadNpmTasks('grunt-contrib-less');   // Load the less task
