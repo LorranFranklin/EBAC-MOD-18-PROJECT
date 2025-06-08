@@ -8,6 +8,8 @@ h1 {
   font-size: 3em;
 }
 main {
+  height: 100vh;
+  height: 100%;
   max-width: 960px;
   width: 100%;
   margin: 0 auto;
@@ -35,4 +37,15 @@ input {
   text-align: center;
   color: #fff;
   border-bottom: 2px solid #fff;
+}
+.resultado {
+  padding: 16px;
+  margin-top: 100px;
+  border: 8px dotted #fff;
+  display: none;
+}
+.resultado span {
+  font-weight: bold;
+  font-size: 2em;
+  display: block;
 }

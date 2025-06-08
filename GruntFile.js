@@ -59,6 +59,10 @@ module.exports = function (grunt) {
               match: 'ENDERECO_DO_CSS', // Replace this with the actual pattern you want to match
               replacement: './styles/main.min.css', // Replace with the path to the CSS file
             },
+            {
+              match: 'ENDERECO_DO_JS',  // Replace this with the actual pattern you want to match
+              replacement: './scripts/main.min.js', // Replace with the path to the minified JS file
+            },
           ],
         },
         files: [
@@ -85,6 +89,13 @@ module.exports = function (grunt) {
       },
     },
     clean: ['prebuild'],
+    uglify: {
+      target: {
+        files: {
+          'dist/scripts/main.min.js': 'src/scripts/main.js', // Minify main.js to main.min.js
+        },
+      },
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-less');   // Load the less task
@@ -92,7 +103,14 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-replace'); // Load the replace task
   grunt.loadNpmTasks('grunt-contrib-htmlmin'); // Load the htmlmin task
   grunt.loadNpmTasks('grunt-contrib-clean');  // Load the clean task
+  grunt.loadNpmTasks('grunt-contrib-uglify'); // Load the uglify task
 
   grunt.registerTask('default', ['less:development']); // Register the default task
-  grunt.registerTask('build', ['less:production', 'htmlmin:dist', 'replace:dist', 'clean']); // Register the build task
+  grunt.registerTask('build', [
+    'less:production',
+    'htmlmin:dist',
+    'replace:dist',
+    'clean',
+    'uglify',
+  ]); // Register the build task
 };
